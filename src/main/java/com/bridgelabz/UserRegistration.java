@@ -1,8 +1,26 @@
 package com.bridgelabz;
 
 
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class UserRegistration {
-    public static void main(String[] args) {
-        System.out.println("Welcome to User Registration Junit Programs");
+    Scanner scanner=new Scanner(System.in);
+
+    public void firstName(){
+        String firstName=scanner.next();
+        Pattern pattern=Pattern.compile("^[A-Z]{1}[a-z]{2,}$");
+        Matcher matcher=pattern.matcher(firstName);
+        if (matcher.matches()){
+            System.out.println("Valid");
+        }else {
+            System.out.println("Not valid");
+        }
     }
+    public static void main(String[] args) {
+       UserRegistration userRegistration=new UserRegistration();
+       userRegistration.firstName();
+    }
+
 }
