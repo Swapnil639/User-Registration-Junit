@@ -58,12 +58,25 @@ public class UserRegistration {
         }
 
     }
+    public void password(){
+        System.out.println("Enter Password");
+        String password=scanner.next();
+        Pattern pattern=Pattern.compile("^[A-Za-z]{8,}$");
+        Matcher matcher=pattern.matcher(password);
+        if (matcher.matches()){
+            System.out.println("Valid");
+        }else {
+            System.out.println("Not valid");
+            mobileNumber();
+        }
+    }
     public static void main(String[] args) {
        UserRegistration userRegistration=new UserRegistration();
        userRegistration.firstName();
        userRegistration.lastName();
        userRegistration.emailId();
        userRegistration.mobileNumber();
+       userRegistration.password();
     }
 
 }
