@@ -59,15 +59,15 @@ public class UserRegistration {
 
     }
     public void password(){
-        System.out.println("Enter Password");
-        String password=scanner.next();
-        Pattern pattern=Pattern.compile("^[A-Z]{1}[A-Za-z0-9]{8,}$");
+        System.out.println("Enter the Password ");
+        String password = scanner.next();
+        Pattern pattern=Pattern.compile("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$");
         Matcher matcher=pattern.matcher(password);
-        if (matcher.matches()){
+        if (matcher.matches()) {
             System.out.println("Valid");
-        }else {
-            System.out.println("Not valid");
-            mobileNumber();
+        } else {
+            System.out.println("Invalid Password Please try Again");
+            password();
         }
     }
     public static void main(String[] args) {
