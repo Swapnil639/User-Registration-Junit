@@ -18,9 +18,20 @@ public class UserRegistration {
             System.out.println("Not valid");
         }
     }
+    public void lastName(){
+        String lastName=scanner.next();
+        Pattern pattern=Pattern.compile("^[A-Z]{1}[a-z]{2,}$");
+        Matcher matcher=pattern.matcher(lastName);
+        if (matcher.matches()){
+            System.out.println("Valid");
+        }else {
+            System.out.println("Not valid");
+        }
+    }
     public static void main(String[] args) {
        UserRegistration userRegistration=new UserRegistration();
        userRegistration.firstName();
+       userRegistration.lastName();
     }
 
 }
