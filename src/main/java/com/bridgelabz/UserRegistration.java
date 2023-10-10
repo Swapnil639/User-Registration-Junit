@@ -17,6 +17,7 @@ public class UserRegistration {
             System.out.println("Valid");
         }else {
             System.out.println("Not valid");
+            firstName();
         }
     }
     public void lastName(){
@@ -28,6 +29,8 @@ public class UserRegistration {
             System.out.println("Valid");
         }else {
             System.out.println("Not valid");
+            lastName();
+
         }
     }
     public void emailId(){
@@ -39,13 +42,28 @@ public class UserRegistration {
             System.out.println("Valid");
         }else {
             System.out.println("Not valid");
+            emailId();
         }
+    }
+    public void mobileNumber(){
+        System.out.println("Enter mobile number:");
+        String mobile=scanner.next();
+        Pattern pattern=Pattern.compile("^[0-9]{2,}+-[0-9]{10}$");
+        Matcher matcher=pattern.matcher(mobile);
+        if (matcher.matches()){
+            System.out.println("Valid");
+        }else {
+            System.out.println("Not valid");
+            mobileNumber();
+        }
+
     }
     public static void main(String[] args) {
        UserRegistration userRegistration=new UserRegistration();
        userRegistration.firstName();
        userRegistration.lastName();
        userRegistration.emailId();
+       userRegistration.mobileNumber();
     }
 
 }
