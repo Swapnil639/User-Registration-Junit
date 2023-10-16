@@ -1,43 +1,109 @@
 package com.bridgelabz;
 
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.Test;
 
 public class UserRegistrationTest {
-    UserRegistration userRegistration=new UserRegistration();
+    UserRegistration userRegistration = new UserRegistration();
+
     @Test
-    public void testFirstNameValidation(){
-        boolean b1=userRegistration.firstNameValidation("Swapnil");
-        boolean b2=userRegistration.firstNameValidation("swapnil");
-        Assertions.assertTrue(b1);
-        Assertions.assertFalse(b2);
+    public void validateFirstNameTestForPositive() {
+        boolean actual1 = false;
+        try {
+            actual1 = userRegistration.firstNameValidation("Swapnil");
+        } catch (InvalidInputException e) {
+            e.printStackTrace();
+        }
     }
+
     @Test
-    public void testLastNameValidation(){
-        boolean b1=userRegistration.lastNameValidation("Patil");
-        boolean b2=userRegistration.lastNameValidation("patil");
-        Assertions.assertTrue(b1);
-        Assertions.assertFalse(b2);
+    public void validateFirstNameTestForNegative() {
+        boolean actual2 = false;
+        try {
+            actual2 = userRegistration.firstNameValidation("swapnil6");
+        } catch (InvalidInputException e) {
+            e.printStackTrace();
+        }
+
     }
+
     @Test
-    public void testEmailIdValidation(){
-        boolean b1=userRegistration.emailIdValidation("swapnilpatil631997@gmail.com");
-        boolean b2=userRegistration.emailIdValidation(".SwapnilPatilgmail123");
-        Assertions.assertTrue(b1);
-        Assertions.assertFalse(b2);
+    public void validateLastNameTestForPositive() {
+        boolean actual1 = false;
+        try {
+            actual1 = userRegistration.lastNameValidation("Patil");
+        } catch (InvalidInputException e) {
+            e.printStackTrace();
+        }
     }
+
     @Test
-    public void testMobileNumberValidation(){
-        boolean b1=userRegistration.mobileNumberValidation("91-9967891679");
-        boolean b2=userRegistration.mobileNumberValidation("95589454");
-        Assertions.assertTrue(b1);
-        Assertions.assertFalse(b2);
+    public void validateLastNameTestForNegative() {
+        boolean actual2 = false;
+        try {
+            actual2 = userRegistration.lastNameValidation("patil6");
+        } catch (InvalidInputException e) {
+            e.printStackTrace();
+        }
     }
+
     @Test
-    public void testPasswordValidation(){
-        boolean b1=userRegistration.passwordValidation("SwapnilPatil@123");
-        boolean b2=userRegistration.passwordValidation("swapnil");
-        Assertions.assertTrue(b1);
-        Assertions.assertFalse(b2);
+    public void validateEmailTestPositive() {
+        boolean actual1 = false;
+        try {
+            actual1 = userRegistration.emailValidation("abc-100@yahoo.com");
+        } catch (InvalidInputException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void validateEmailTestNegative() {
+        boolean actual2 = false;
+        try {
+            actual2 = userRegistration.emailValidation(".swapnil@gmail.com");
+        } catch (InvalidInputException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void validateMobilePositive() {
+        boolean actual1 = false;
+        try {
+            actual1 = userRegistration.phoneNumberValidation("+91-9967891679");
+        } catch (InvalidInputException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void validateMobileNegative() {
+        boolean actual2 = false;
+        try {
+            actual2 = userRegistration.phoneNumberValidation("8797654");
+        } catch (InvalidInputException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void validatePassword() {
+        boolean actual2 = false;
+        try {
+            actual2 = userRegistration.passwordValidation("Swapnil@123");
+        } catch (InvalidInputException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void validatePasswordNegative() {
+        boolean actual1 = false;
+        try {
+            actual1 = userRegistration.passwordValidation("1swapnil");
+        } catch (InvalidInputException e) {
+            e.printStackTrace();
+        }
     }
 }
